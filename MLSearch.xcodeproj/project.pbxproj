@@ -14,6 +14,8 @@
 		6D80BA371AFBD12D00608C27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D80BA361AFBD12D00608C27 /* Images.xcassets */; };
 		6D80BA3A1AFBD12D00608C27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D80BA381AFBD12D00608C27 /* LaunchScreen.xib */; };
 		6D80BA461AFBD12E00608C27 /* MLSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA451AFBD12E00608C27 /* MLSearchTests.m */; };
+		6D80BA511AFBD9F700608C27 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA501AFBD9F700608C27 /* SearchTableViewController.m */; };
+		6D80BA571AFBE32100608C27 /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA561AFBE32100608C27 /* SearchResultsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		6D80BA3F1AFBD12E00608C27 /* MLSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MLSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D80BA441AFBD12E00608C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D80BA451AFBD12E00608C27 /* MLSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLSearchTests.m; sourceTree = "<group>"; };
+		6D80BA4F1AFBD9F700608C27 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		6D80BA501AFBD9F700608C27 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		6D80BA551AFBE32100608C27 /* SearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTableViewController.h; sourceTree = "<group>"; };
+		6D80BA561AFBE32100608C27 /* SearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,10 @@
 				6D80BA361AFBD12D00608C27 /* Images.xcassets */,
 				6D80BA381AFBD12D00608C27 /* LaunchScreen.xib */,
 				6D80BA291AFBD12D00608C27 /* Supporting Files */,
+				6D80BA4F1AFBD9F700608C27 /* SearchTableViewController.h */,
+				6D80BA501AFBD9F700608C27 /* SearchTableViewController.m */,
+				6D80BA551AFBE32100608C27 /* SearchResultsTableViewController.h */,
+				6D80BA561AFBE32100608C27 /* SearchResultsTableViewController.m */,
 			);
 			path = MLSearch;
 			sourceTree = "<group>";
@@ -220,8 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D80BA321AFBD12D00608C27 /* ViewController.m in Sources */,
+				6D80BA571AFBE32100608C27 /* SearchResultsTableViewController.m in Sources */,
 				6D80BA2F1AFBD12D00608C27 /* AppDelegate.m in Sources */,
 				6D80BA2C1AFBD12D00608C27 /* main.m in Sources */,
+				6D80BA511AFBD9F700608C27 /* SearchTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
