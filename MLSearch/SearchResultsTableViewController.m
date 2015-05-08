@@ -22,7 +22,7 @@
     self.tableView.dataSource = self;
     
     self.responseData = [NSMutableData data];
-    [self StartSearch:@"Samsung"];
+    //[self StartSearch:@"Samsung"];
     
 }
 
@@ -117,6 +117,7 @@
     SearchItem *searchItem = (self.searchItems) [indexPath.row];
     cell.titleLabel.text = searchItem.title;
     cell.priceLabel.text = [NSString stringWithFormat:@"%@",searchItem.price];//searchItem.price;
+    [cell.priceLabel sizeToFit];
 //    cell.imageViewSpace.image = [UIImage imageWithCon:searchItem.URLImage];
     
     //NSString *ImageURL = @"YourURLHere";

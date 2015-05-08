@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="85C-Ig-u3K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UnB-mn-iz1">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -21,26 +21,32 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1uV-LQ-Zo3" id="G1t-fN-U0J">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Apple" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KY3-U3-Cwm">
+                                                    <rect key="frame" x="8" y="7" width="494" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuh-wd-MWr">
-                                                    <rect key="frame" x="518" y="7" width="46" height="30"/>
-                                                    <state key="normal" title="Button">
+                                                    <rect key="frame" x="541" y="7" width="51" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="51" id="BDd-Oc-2gY"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Search">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="ClickOnSearchButton:" destination="UuV-m6-z3y" eventType="touchUpInside" id="Q6s-gn-oVf"/>
                                                     </connections>
                                                 </button>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Apple" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KY3-U3-Cwm">
-                                                    <rect key="frame" x="8" y="7" width="59" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="KY3-U3-Cwm" firstAttribute="leading" secondItem="G1t-fN-U0J" secondAttribute="leadingMargin" id="6Tu-kG-4Pt"/>
-                                                <constraint firstAttribute="centerY" secondItem="kuh-wd-MWr" secondAttribute="centerY" id="Bis-eB-uJt"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="kuh-wd-MWr" secondAttribute="trailing" constant="28" id="omN-V5-fpy"/>
-                                                <constraint firstAttribute="centerY" secondItem="KY3-U3-Cwm" secondAttribute="centerY" id="zcb-bn-9eP"/>
+                                                <constraint firstItem="KY3-U3-Cwm" firstAttribute="leading" secondItem="G1t-fN-U0J" secondAttribute="leadingMargin" id="CWr-9n-Jtk"/>
+                                                <constraint firstItem="kuh-wd-MWr" firstAttribute="trailing" secondItem="G1t-fN-U0J" secondAttribute="trailingMargin" id="Ogc-Rg-KsR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="KY3-U3-Cwm" secondAttribute="bottom" constant="-2" id="QCs-6O-Iqb"/>
+                                                <constraint firstItem="kuh-wd-MWr" firstAttribute="leading" secondItem="KY3-U3-Cwm" secondAttribute="trailing" constant="39" id="QhM-pe-mBL"/>
+                                                <constraint firstItem="kuh-wd-MWr" firstAttribute="top" secondItem="G1t-fN-U0J" secondAttribute="topMargin" constant="-1" id="ddU-Xn-E3U"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kuh-wd-MWr" secondAttribute="bottom" constant="-2" id="qSv-2F-POW"/>
+                                                <constraint firstItem="KY3-U3-Cwm" firstAttribute="top" secondItem="G1t-fN-U0J" secondAttribute="topMargin" constant="-1" id="uwq-M6-Jz7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -70,33 +76,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchItemCell" rowHeight="110" id="3sq-VE-cXY" customClass="SearchItemTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchItemCell" id="qUD-lV-HfK" customClass="SearchItemTableViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3sq-VE-cXY" id="Sc4-Af-mty">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qUD-lV-HfK" id="Bhe-r8-oke">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apple Imac Me086 Modelo 2014 21.5 Gta Oficial Fact A O B" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWn-uF-uiv">
-                                            <rect key="frame" x="112" y="17" width="361" height="53"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yJY-uA-HPn">
+                                            <rect key="frame" x="8" y="17" width="75" height="75"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="0KL-8m-qLE"/>
+                                                <constraint firstAttribute="height" constant="75" id="cmT-8A-wQo"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tittle" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWn-uF-uiv">
+                                            <rect key="frame" x="98" y="12" width="478" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnt-0l-kfm">
-                                            <rect key="frame" x="112" y="71" width="40" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnt-0l-kfm">
+                                            <rect key="frame" x="98" y="71" width="40" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJY-uA-HPn">
-                                            <rect key="frame" x="8" y="17" width="75" height="75"/>
-                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="yJY-uA-HPn" firstAttribute="top" secondItem="Bhe-r8-oke" secondAttribute="topMargin" constant="9" id="BK7-mA-8ep"/>
+                                        <constraint firstItem="yJY-uA-HPn" firstAttribute="leading" secondItem="Bhe-r8-oke" secondAttribute="leadingMargin" id="DDC-fe-28D"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="BWn-uF-uiv" secondAttribute="trailing" constant="16" id="P9w-cJ-h1M"/>
+                                        <constraint firstItem="BWn-uF-uiv" firstAttribute="top" secondItem="Bhe-r8-oke" secondAttribute="topMargin" constant="4" id="i93-Ku-3GM"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="qnt-0l-kfm" secondAttribute="bottom" constant="9" id="iwk-Lp-KZU"/>
+                                        <constraint firstItem="qnt-0l-kfm" firstAttribute="top" secondItem="BWn-uF-uiv" secondAttribute="bottom" constant="36" id="lts-ed-CeI"/>
+                                        <constraint firstItem="BWn-uF-uiv" firstAttribute="leading" secondItem="yJY-uA-HPn" secondAttribute="trailing" constant="15" id="ly0-Lg-bl4"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="yJY-uA-HPn" secondAttribute="bottom" constant="9" id="u1H-HC-x2g"/>
+                                        <constraint firstItem="qnt-0l-kfm" firstAttribute="leading" secondItem="Bhe-r8-oke" secondAttribute="leadingMargin" constant="90" id="v1K-8k-Bl0"/>
+                                        <constraint firstItem="BWn-uF-uiv" firstAttribute="top" secondItem="Bhe-r8-oke" secondAttribute="topMargin" constant="4" id="w7D-vP-CD1"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="imageView" destination="yJY-uA-HPn" id="W9q-ew-w1A"/>
-                                    <outlet property="imageViewSpace" destination="yJY-uA-HPn" id="nEh-lf-7O6"/>
-                                    <outlet property="priceLabel" destination="qnt-0l-kfm" id="177-I4-G4f"/>
-                                    <outlet property="titleLabel" destination="BWn-uF-uiv" id="LRk-d6-vkJ"/>
+                                    <outlet property="imageViewSpace" destination="yJY-uA-HPn" id="eXl-Ih-gsn"/>
+                                    <outlet property="priceLabel" destination="qnt-0l-kfm" id="j5L-Fb-2qy"/>
+                                    <outlet property="titleLabel" destination="BWn-uF-uiv" id="r4z-CP-1Ro"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
