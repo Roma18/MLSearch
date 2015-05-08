@@ -22,7 +22,7 @@
     self.tableView.dataSource = self;
     
     self.responseData = [NSMutableData data];
-    [self StartSearch:@"Apple"];
+    [self StartSearch:@"Samsung"];
     
 }
 
@@ -96,6 +96,9 @@
 
 - (void)reloadData{
     NSLog(@"reload data");
+    
+    NSLog(@"self.searchItems count: %lu",  (unsigned long)[self.searchItems count]);
+    
     [self.tableView reloadData];
 }
 
@@ -113,8 +116,8 @@
     
     SearchItem *searchItem = (self.searchItems) [indexPath.row];
     cell.titleLabel.text = searchItem.title;
-    cell.priceLabel.text = searchItem.price;
-    
+    cell.priceLabel.text = [NSString stringWithFormat:@"%@",searchItem.price];//searchItem.price;
+
     return cell;
 }
 
