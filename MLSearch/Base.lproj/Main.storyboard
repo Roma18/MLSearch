@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UnB-mn-iz1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="85C-Ig-u3K">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -65,16 +65,56 @@
         <scene sceneID="fmQ-wk-LSG">
             <objects>
                 <tableViewController storyboardIdentifier="SearchResult" useStoryboardIdentifierAsRestorationIdentifier="YES" id="85C-Ig-u3K" userLabel="Search results" customClass="SearchResultsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="FQn-bP-Pe7">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="22" sectionFooterHeight="22" id="FQn-bP-Pe7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="77" id="3sq-VE-cXY">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchItemCell" rowHeight="110" id="3sq-VE-cXY" customClass="SearchItemTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3sq-VE-cXY" id="Sc4-Af-mty">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yJY-uA-HPn">
+                                            <rect key="frame" x="13" y="17" width="75" height="75"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="sl6-e4-wYI"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnt-0l-kfm">
+                                            <rect key="frame" x="112" y="71" width="40" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="t0h-qo-PjC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Imac Me086 Modelo 2014 21.5 Gta Oficial Fact A O B" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWn-uF-uiv">
+                                            <rect key="frame" x="112" y="17" width="361" height="53"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qnt-0l-kfm" firstAttribute="leading" secondItem="yJY-uA-HPn" secondAttribute="trailing" constant="24" id="KnF-uu-R4h"/>
+                                        <constraint firstItem="qnt-0l-kfm" firstAttribute="top" secondItem="BWn-uF-uiv" secondAttribute="bottom" constant="1" id="Kpa-W2-xky"/>
+                                        <constraint firstItem="yJY-uA-HPn" firstAttribute="leading" secondItem="Sc4-Af-mty" secondAttribute="leadingMargin" constant="5" id="UHe-ps-JuO"/>
+                                        <constraint firstItem="yJY-uA-HPn" firstAttribute="top" secondItem="Sc4-Af-mty" secondAttribute="topMargin" constant="9" id="VxM-7D-C2S"/>
+                                        <constraint firstItem="BWn-uF-uiv" firstAttribute="leading" secondItem="yJY-uA-HPn" secondAttribute="trailing" constant="24" id="ZRn-R4-ghS"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="BWn-uF-uiv" secondAttribute="trailing" constant="86" id="iOe-SL-GUI"/>
+                                        <constraint firstItem="yJY-uA-HPn" firstAttribute="bottom" secondItem="qnt-0l-kfm" secondAttribute="bottom" id="q9L-cO-75R"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="yJY-uA-HPn" secondAttribute="bottom" constant="9" id="u5O-Wa-Hfq"/>
+                                        <constraint firstItem="BWn-uF-uiv" firstAttribute="top" secondItem="Sc4-Af-mty" secondAttribute="topMargin" constant="9" id="xa0-Rd-PHy"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageView" destination="yJY-uA-HPn" id="W9q-ew-w1A"/>
+                                    <outlet property="imageViewSpace" destination="yJY-uA-HPn" id="nEh-lf-7O6"/>
+                                    <outlet property="priceLabel" destination="qnt-0l-kfm" id="177-I4-G4f"/>
+                                    <outlet property="titleLabel" destination="BWn-uF-uiv" id="LRk-d6-vkJ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

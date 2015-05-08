@@ -7,17 +7,23 @@
 //
 
 #import "SearchResultsTableViewController.h"
+#import "SearchItem.h"
+#import "SearchItemTableViewCell.h"
 
 @interface SearchResultsTableViewController ()
 @property (nonatomic, strong) NSMutableData *responseData;
+@property (nonatomic, strong) NSMutableArray *searchItems;
 @end
 
 @implementation SearchResultsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.dataSource = self;
     
     self.responseData = [NSMutableData data];
+    [self StartSearch:@"Apple"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,10 +40,11 @@
     NSString * baseURL = @"https://api.mercadolibre.com/sites/MLA/search?q=";
     NSString *URLtoUSE = [baseURL stringByAppendingString:searchKey];
     
-    NSLog(URLtoUSE);
+    NSLog(@"%@", URLtoUSE);
     
     NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLtoUSE]];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    //[NSURLConnection initWithRequest:request delegate:self];
+    [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -51,46 +58,66 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"didFailWithError");
-    NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+    NSString *errorString = [error description];
+    NSLog(@"Connection failed: %@", errorString);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connectionDidFinishLoading");
-    NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
+    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
     
     // convert to JSON
     NSError *myError = nil;
     NSDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     
+    NSString *limit = [[res objectForKey:@"paging"] objectForKey:@"paging"];
+    int limintInt = [limit intValue];
+    
+    self.searchItems = [NSMutableArray arrayWithCapacity:(NSInteger) limintInt];
     // extract specific value...
     NSArray *results = [res objectForKey:@"results"];
     
     for (NSDictionary *result in results) {
-        NSString *title = [result objectForKey:@"title"];
-        NSLog(@"title: %@", title);
+        SearchItem *searchItem = [SearchItem new];
+        searchItem.title = [result objectForKey:@"title"];
+        searchItem.price = [result objectForKey:@"price"];
+        searchItem.URLImage = [result objectForKey:@"thumbnail"];
+        [self.searchItems addObject:searchItem];
+        
+        /*NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.searchItems count] - 1) inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self dismissViewControllerAnimated:YES completion:nil];*/
     }
     
+    [self reloadData];
 }
 
 #pragma mark - Table view data source
 
+- (void)reloadData{
+    NSLog(@"reload data");
+    [self.tableView reloadData];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return [self.searchItems count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    SearchItemTableViewCell *cell = (SearchItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SearchItemCell"];
     
-    // Configure the cell...
+    SearchItem *searchItem = (self.searchItems) [indexPath.row];
+    cell.titleLabel.text = searchItem.title;
+    cell.priceLabel.text = searchItem.price;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

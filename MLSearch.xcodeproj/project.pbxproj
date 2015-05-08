@@ -16,6 +16,8 @@
 		6D80BA461AFBD12E00608C27 /* MLSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA451AFBD12E00608C27 /* MLSearchTests.m */; };
 		6D80BA511AFBD9F700608C27 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA501AFBD9F700608C27 /* SearchTableViewController.m */; };
 		6D80BA571AFBE32100608C27 /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA561AFBE32100608C27 /* SearchResultsTableViewController.m */; };
+		6D80BA5A1AFBFC1D00608C27 /* SearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA591AFBFC1D00608C27 /* SearchItem.m */; };
+		6D80BA5D1AFC00FF00608C27 /* SearchItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA5C1AFC00FF00608C27 /* SearchItemTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		6D80BA501AFBD9F700608C27 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		6D80BA551AFBE32100608C27 /* SearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTableViewController.h; sourceTree = "<group>"; };
 		6D80BA561AFBE32100608C27 /* SearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTableViewController.m; sourceTree = "<group>"; };
+		6D80BA581AFBFC1D00608C27 /* SearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchItem.h; sourceTree = "<group>"; };
+		6D80BA591AFBFC1D00608C27 /* SearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchItem.m; sourceTree = "<group>"; };
+		6D80BA5B1AFC00FF00608C27 /* SearchItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchItemTableViewCell.h; sourceTree = "<group>"; };
+		6D80BA5C1AFC00FF00608C27 /* SearchItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchItemTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 				6D80BA501AFBD9F700608C27 /* SearchTableViewController.m */,
 				6D80BA551AFBE32100608C27 /* SearchResultsTableViewController.h */,
 				6D80BA561AFBE32100608C27 /* SearchResultsTableViewController.m */,
+				6D80BA581AFBFC1D00608C27 /* SearchItem.h */,
+				6D80BA591AFBFC1D00608C27 /* SearchItem.m */,
+				6D80BA5B1AFC00FF00608C27 /* SearchItemTableViewCell.h */,
+				6D80BA5C1AFC00FF00608C27 /* SearchItemTableViewCell.m */,
 			);
 			path = MLSearch;
 			sourceTree = "<group>";
@@ -233,7 +243,9 @@
 				6D80BA571AFBE32100608C27 /* SearchResultsTableViewController.m in Sources */,
 				6D80BA2F1AFBD12D00608C27 /* AppDelegate.m in Sources */,
 				6D80BA2C1AFBD12D00608C27 /* main.m in Sources */,
+				6D80BA5A1AFBFC1D00608C27 /* SearchItem.m in Sources */,
 				6D80BA511AFBD9F700608C27 /* SearchTableViewController.m in Sources */,
+				6D80BA5D1AFC00FF00608C27 /* SearchItemTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
