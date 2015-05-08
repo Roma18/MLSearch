@@ -117,7 +117,12 @@
     SearchItem *searchItem = (self.searchItems) [indexPath.row];
     cell.titleLabel.text = searchItem.title;
     cell.priceLabel.text = [NSString stringWithFormat:@"%@",searchItem.price];//searchItem.price;
-
+//    cell.imageViewSpace.image = [UIImage imageWithCon:searchItem.URLImage];
+    
+    //NSString *ImageURL = @"YourURLHere";
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:searchItem.URLImage]];
+    cell.imageViewSpace.image = [UIImage imageWithData:imageData];
+    
     return cell;
 }
 
