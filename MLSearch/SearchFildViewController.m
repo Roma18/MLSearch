@@ -73,6 +73,10 @@
 */
 
 - (void) ChangeViewAndSearch{
+    if ([self.searchStringTextField.text isEqual: @""]){
+        NSLog(@"Empty string");
+        return;
+    }
     [self SaveInTextSringInHistory];
     SearchResultsTableViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResult"];
     [self.navigationController pushViewController:viewController animated:YES ];
