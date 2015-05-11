@@ -9,6 +9,7 @@
 #import "SearchResultsTableViewController.h"
 #import "SearchItem.h"
 #import "SearchItemTableViewCell.h"
+#import "SearchFildViewController.h"
 
 @interface SearchResultsTableViewController ()
 @property (nonatomic, strong) NSMutableData *responseData;
@@ -38,7 +39,15 @@
 
 -(void) StartSearch:(NSString *) searchKey{
     NSString * baseURL = @"https://api.mercadolibre.com/sites/MLA/search?q=";
-    NSString *URLtoUSE = [baseURL stringByAppendingString:searchKey];
+    
+    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                                  NULL,
+                                                                                  (CFStringRef)searchKey,
+                                                                                  NULL,
+                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                  kCFStringEncodingUTF8 ));
+    
+    NSString *URLtoUSE = [baseURL stringByAppendingString:encodedString];
     
     NSLog(@"%@", URLtoUSE);
     
@@ -109,7 +118,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.searchItems count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SearchItemTableViewCell *cell = (SearchItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SearchItemCell"];

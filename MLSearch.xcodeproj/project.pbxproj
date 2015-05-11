@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D0FFDB91B00F57600B4C59C /* SearchFildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0FFDB81B00F57600B4C59C /* SearchFildViewController.m */; };
 		6D80BA2C1AFBD12D00608C27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA2B1AFBD12D00608C27 /* main.m */; };
 		6D80BA2F1AFBD12D00608C27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA2E1AFBD12D00608C27 /* AppDelegate.m */; };
 		6D80BA321AFBD12D00608C27 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA311AFBD12D00608C27 /* ViewController.m */; };
@@ -14,7 +15,6 @@
 		6D80BA371AFBD12D00608C27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D80BA361AFBD12D00608C27 /* Images.xcassets */; };
 		6D80BA3A1AFBD12D00608C27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D80BA381AFBD12D00608C27 /* LaunchScreen.xib */; };
 		6D80BA461AFBD12E00608C27 /* MLSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA451AFBD12E00608C27 /* MLSearchTests.m */; };
-		6D80BA511AFBD9F700608C27 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA501AFBD9F700608C27 /* SearchTableViewController.m */; };
 		6D80BA571AFBE32100608C27 /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA561AFBE32100608C27 /* SearchResultsTableViewController.m */; };
 		6D80BA5A1AFBFC1D00608C27 /* SearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA591AFBFC1D00608C27 /* SearchItem.m */; };
 		6D80BA5D1AFC00FF00608C27 /* SearchItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA5C1AFC00FF00608C27 /* SearchItemTableViewCell.m */; };
@@ -31,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D0FFDB71B00F57600B4C59C /* SearchFildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchFildViewController.h; sourceTree = "<group>"; };
+		6D0FFDB81B00F57600B4C59C /* SearchFildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchFildViewController.m; sourceTree = "<group>"; };
 		6D80BA261AFBD12D00608C27 /* MLSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D80BA2A1AFBD12D00608C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D80BA2B1AFBD12D00608C27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,8 +46,6 @@
 		6D80BA3F1AFBD12E00608C27 /* MLSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MLSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D80BA441AFBD12E00608C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D80BA451AFBD12E00608C27 /* MLSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLSearchTests.m; sourceTree = "<group>"; };
-		6D80BA4F1AFBD9F700608C27 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
-		6D80BA501AFBD9F700608C27 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		6D80BA551AFBE32100608C27 /* SearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTableViewController.h; sourceTree = "<group>"; };
 		6D80BA561AFBE32100608C27 /* SearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTableViewController.m; sourceTree = "<group>"; };
 		6D80BA581AFBFC1D00608C27 /* SearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchItem.h; sourceTree = "<group>"; };
@@ -101,14 +101,14 @@
 				6D80BA361AFBD12D00608C27 /* Images.xcassets */,
 				6D80BA381AFBD12D00608C27 /* LaunchScreen.xib */,
 				6D80BA291AFBD12D00608C27 /* Supporting Files */,
-				6D80BA4F1AFBD9F700608C27 /* SearchTableViewController.h */,
-				6D80BA501AFBD9F700608C27 /* SearchTableViewController.m */,
 				6D80BA551AFBE32100608C27 /* SearchResultsTableViewController.h */,
 				6D80BA561AFBE32100608C27 /* SearchResultsTableViewController.m */,
 				6D80BA581AFBFC1D00608C27 /* SearchItem.h */,
 				6D80BA591AFBFC1D00608C27 /* SearchItem.m */,
 				6D80BA5B1AFC00FF00608C27 /* SearchItemTableViewCell.h */,
 				6D80BA5C1AFC00FF00608C27 /* SearchItemTableViewCell.m */,
+				6D0FFDB71B00F57600B4C59C /* SearchFildViewController.h */,
+				6D0FFDB81B00F57600B4C59C /* SearchFildViewController.m */,
 			);
 			path = MLSearch;
 			sourceTree = "<group>";
@@ -240,11 +240,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D80BA321AFBD12D00608C27 /* ViewController.m in Sources */,
+				6D0FFDB91B00F57600B4C59C /* SearchFildViewController.m in Sources */,
 				6D80BA571AFBE32100608C27 /* SearchResultsTableViewController.m in Sources */,
 				6D80BA2F1AFBD12D00608C27 /* AppDelegate.m in Sources */,
 				6D80BA2C1AFBD12D00608C27 /* main.m in Sources */,
 				6D80BA5A1AFBFC1D00608C27 /* SearchItem.m in Sources */,
-				6D80BA511AFBD9F700608C27 /* SearchTableViewController.m in Sources */,
 				6D80BA5D1AFC00FF00608C27 /* SearchItemTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +374,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MLSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -384,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MLSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -442,6 +444,7 @@
 				6D80BA4B1AFBD12E00608C27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D80BA4C1AFBD12E00608C27 /* Build configuration list for PBXNativeTarget "MLSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +453,7 @@
 				6D80BA4E1AFBD12E00608C27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
