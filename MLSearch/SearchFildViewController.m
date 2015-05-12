@@ -32,10 +32,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"viewWillAppear");
-    
-    NSLog(@"[self.searchHistoryArray count]: %lu", (unsigned long)[self.searchHistoryArray count]);
-    
     [self.searchTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
@@ -71,10 +67,11 @@
 
 - (void) ChangeViewAndSearch{
     if ([self.searchStringTextField.text isEqual: @""]){
-        NSLog(@"Empty string");
         return;
     }
     [self SaveInTextSringInHistory];
+    [self.searchStringTextField becomeFirstResponder];
+    [self.searchStringTextField resignFirstResponder];
     SearchResultsTableViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResult"];
     [self.navigationController pushViewController:viewController animated:YES ];
     [viewController ReceiveSearchString:self.searchStringTextField.text];
@@ -84,7 +81,6 @@
     //self.searchHistoryArray = [NSMutableArray new];
     NSString *stringToSave = self.searchStringTextField.text;
     [self.searchHistoryArray addObject:stringToSave];
-    NSLog(@"string to save: %@", stringToSave);
     
     [[NSUserDefaults standardUserDefaults] setObject:self.searchHistoryArray forKey:@"searchHistory"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -108,7 +104,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"[self.searchHistoryArray count]: %lu", (unsigned long)[self.searchHistoryArray count]);
     return [self.searchHistoryArray count];
 }
 
@@ -132,11 +127,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    NSLog(@"text label %@", cell.textLabel.text);
     SearchResultsTableViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResult"];
     [self.navigationController pushViewController:viewController animated:YES ];
     [viewController ReceiveSearchString:cell.textLabel.text];
 }
-
-
 @end
