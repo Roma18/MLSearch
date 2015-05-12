@@ -12,6 +12,7 @@
 - (IBAction)ClickOnSearchButton:(id)sender;
 - (void) ChangeViewAndSearch;
 - (void) ReloadTableData;
+- (IBAction)ClearButtonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 
 @property (weak, nonatomic) IBOutlet UITextField *searchStringTextField;

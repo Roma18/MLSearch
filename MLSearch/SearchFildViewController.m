@@ -17,11 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
+    /*UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
                                            initWithTarget:self
                                            action:@selector(hideKeyBoard)];
     
-    [self.view addGestureRecognizer:tapGesture];
+    [self.view addGestureRecognizer:tapGesture];*/
     
     //self.searchHistoryArray = [NSMutableArray new];
     self.searchHistoryArray =  [[[[NSUserDefaults standardUserDefaults] arrayForKey:@"searchHistory"] mutableCopy] init];
@@ -30,27 +30,24 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)loadView
-{
-    [super loadView];
-    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] style:UITableViewStylePlain];
-    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    //tableView.delegate = self;
-    //tableView.dataSource = self;
-    [tableView reloadData];
-    
-    //self.view = tableView;
-    self.searchTableView = tableView;
-    
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.searchTableView reloadData];
+    NSLog(@"viewWillAppear");
+    
+    NSLog(@"[self.searchHistoryArray count]: %lu", (unsigned long)[self.searchHistoryArray count]);
+    
+    [self.searchTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 -(void) ReloadTableData{
     [self.searchTableView reloadData];
+}
+
+- (IBAction)ClearButtonClicked:(id)sender {
+    self.searchHistoryArray = [NSMutableArray new];
+    [[NSUserDefaults standardUserDefaults] setObject:self.searchHistoryArray forKey:@"searchHistory"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.searchTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 -(void)hideKeyBoard {
@@ -88,7 +85,6 @@
     NSString *stringToSave = self.searchStringTextField.text;
     [self.searchHistoryArray addObject:stringToSave];
     NSLog(@"string to save: %@", stringToSave);
-    NSLog(@"string in [0]: %@", [self.searchHistoryArray objectAtIndex:0]);
     
     [[NSUserDefaults standardUserDefaults] setObject:self.searchHistoryArray forKey:@"searchHistory"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -112,9 +108,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Number of rows is the number of time zones in the region for the specified section.
+    NSLog(@"[self.searchHistoryArray count]: %lu", (unsigned long)[self.searchHistoryArray count]);
     return [self.searchHistoryArray count];
-    //return (NSInteger) 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -128,6 +123,19 @@
     cell.textLabel.text = (self.searchHistoryArray) [indexPath.row];
     //cell.textLabel.text = @"test";
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.searchStringTextField becomeFirstResponder];
+    [self.searchStringTextField resignFirstResponder];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    NSLog(@"text label %@", cell.textLabel.text);
+    SearchResultsTableViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResult"];
+    [self.navigationController pushViewController:viewController animated:YES ];
+    [viewController ReceiveSearchString:cell.textLabel.text];
 }
 
 
