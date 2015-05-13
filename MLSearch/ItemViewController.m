@@ -88,7 +88,10 @@
         self.titleLabel.text = [NSString stringWithFormat:@"%@",article.title];//article.title;
         self.priceLabel.text = [NSString stringWithFormat:@"%@",article.price];//article.price;
         
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:article.URLImage]];
+        NSArray * picturesArray = [result objectForKey:@"pictures"];
+        NSString * pictureURL = [[ picturesArray objectAtIndex:0] objectForKey:@"url"];
+        
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:pictureURL]];
         self.imagenViewSpace.image = [UIImage imageWithData:imageData];
     }
 }
