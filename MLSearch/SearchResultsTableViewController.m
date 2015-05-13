@@ -69,11 +69,24 @@
     NSLog(@"didFailWithError");
     NSString *errorString = [error description];
     NSLog(@"Connection failed: %@", errorString);
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Search"
+                                                    message:@"The Internet connection appears to be offline"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
+    
+    NSString* responseString = [[NSString alloc] initWithData:self.responseData
+                                                     encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@", responseString);
     
     // convert to JSON
     NSError *myError = nil;
@@ -86,19 +99,31 @@
     // extract specific value...
     NSArray *results = [res objectForKey:@"results"];
     
-    for (NSDictionary *result in results) {
-        SearchItem *searchItem = [SearchItem new];
-        searchItem.title = [result objectForKey:@"title"];
-        searchItem.price = [result objectForKey:@"price"];
-        searchItem.URLImage = [result objectForKey:@"thumbnail"];
-        [self.searchItems addObject:searchItem];
+    if ( [results count] == 0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Search"
+                                                        message:@"No result were found"
+                                                       delegate:self
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
+        [alert show];
         
-        /*NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.searchItems count] - 1) inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self dismissViewControllerAnimated:YES completion:nil];*/
-    }
+    } else {
     
+        for (NSDictionary *result in results) {
+            SearchItem *searchItem = [SearchItem new];
+            searchItem.title = [result objectForKey:@"title"];
+            searchItem.price = [result objectForKey:@"price"];
+            searchItem.URLImage = [result objectForKey:@"thumbnail"];
+            searchItem.id = [result objectForKey:@"id"];
+            [self.searchItems addObject:searchItem];
+        }
+        
+    }
     [self reloadData];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
@@ -126,15 +151,27 @@
     cell.titleLabel.text = searchItem.title;
     cell.priceLabel.text = [NSString stringWithFormat:@"%@",searchItem.price];//searchItem.price;
     [cell.priceLabel sizeToFit];
-//    cell.imageViewSpace.image = [UIImage imageWithCon:searchItem.URLImage];
+    cell.articleID = [NSString stringWithFormat:@"%@", searchItem.id];
     
-    //NSString *ImageURL = @"YourURLHere";
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:searchItem.URLImage]];
     cell.imageViewSpace.image = [UIImage imageWithData:imageData];
     
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    SearchItemTableViewCell *cell = (SearchItemTableViewCell *) [tableView cellForRowAtIndexPath:indexPath];
+    SearchItem *searchItem = (self.searchItems) [indexPath.row];
+    
+    cell.articleID = searchItem.id;
+    
+    SearchResultsTableViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemView"];
+    [self.navigationController pushViewController:viewController animated:YES ];
+    //[viewController ReceiveSearchString:self.searchStringTextField.text];
+
+}
 
 /*
 // Override to support conditional editing of the table view.

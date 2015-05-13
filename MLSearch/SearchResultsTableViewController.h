@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchResultsTableViewController : UITableViewController
+@interface SearchResultsTableViewController : UITableViewController <UIAlertViewDelegate>
 -(void) ReceiveSearchString:(NSString *) search;
 @end

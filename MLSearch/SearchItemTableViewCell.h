@@ -12,5 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewSpace;
-
+@property (strong, nonatomic) NSString *articleID;
 @end
