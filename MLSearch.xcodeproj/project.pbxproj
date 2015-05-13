@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D0FFDB91B00F57600B4C59C /* SearchFildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0FFDB81B00F57600B4C59C /* SearchFildViewController.m */; };
 		6D0FFDBF1B03815A00B4C59C /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0FFDBE1B03815A00B4C59C /* ItemViewController.m */; };
+		6D0FFDC21B03930300B4C59C /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0FFDC11B03930300B4C59C /* Article.m */; };
 		6D80BA2C1AFBD12D00608C27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA2B1AFBD12D00608C27 /* main.m */; };
 		6D80BA2F1AFBD12D00608C27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA2E1AFBD12D00608C27 /* AppDelegate.m */; };
 		6D80BA321AFBD12D00608C27 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80BA311AFBD12D00608C27 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 		6D0FFDB81B00F57600B4C59C /* SearchFildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchFildViewController.m; sourceTree = "<group>"; };
 		6D0FFDBD1B03815A00B4C59C /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
 		6D0FFDBE1B03815A00B4C59C /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		6D0FFDC01B03930300B4C59C /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		6D0FFDC11B03930300B4C59C /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		6D80BA261AFBD12D00608C27 /* MLSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D80BA2A1AFBD12D00608C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D80BA2B1AFBD12D00608C27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 				6D0FFDB81B00F57600B4C59C /* SearchFildViewController.m */,
 				6D0FFDBD1B03815A00B4C59C /* ItemViewController.h */,
 				6D0FFDBE1B03815A00B4C59C /* ItemViewController.m */,
+				6D0FFDC01B03930300B4C59C /* Article.h */,
+				6D0FFDC11B03930300B4C59C /* Article.m */,
 			);
 			path = MLSearch;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			files = (
 				6D80BA321AFBD12D00608C27 /* ViewController.m in Sources */,
 				6D0FFDB91B00F57600B4C59C /* SearchFildViewController.m in Sources */,
+				6D0FFDC21B03930300B4C59C /* Article.m in Sources */,
 				6D80BA571AFBE32100608C27 /* SearchResultsTableViewController.m in Sources */,
 				6D80BA2F1AFBD12D00608C27 /* AppDelegate.m in Sources */,
 				6D80BA2C1AFBD12D00608C27 /* main.m in Sources */,

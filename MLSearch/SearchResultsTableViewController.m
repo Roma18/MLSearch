@@ -10,6 +10,7 @@
 #import "SearchItem.h"
 #import "SearchItemTableViewCell.h"
 #import "SearchFildViewController.h"
+#import "ItemViewController.h"
 
 @interface SearchResultsTableViewController ()
 @property (nonatomic, strong) NSMutableData *responseData;
@@ -83,10 +84,10 @@
     NSLog(@"connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
     
-    NSString* responseString = [[NSString alloc] initWithData:self.responseData
+    /*NSString* responseString = [[NSString alloc] initWithData:self.responseData
                                                      encoding:NSUTF8StringEncoding];
     
-    NSLog(@"%@", responseString);
+    NSLog(@"%@", responseString);*/
     
     // convert to JSON
     NSError *myError = nil;
@@ -153,7 +154,7 @@
     [cell.priceLabel sizeToFit];
     cell.articleID = [NSString stringWithFormat:@"%@", searchItem.id];
     
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:searchItem.URLImage]];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:searchItem.URLImage]] ;
     cell.imageViewSpace.image = [UIImage imageWithData:imageData];
     
     return cell;
@@ -167,10 +168,9 @@
     
     cell.articleID = searchItem.id;
     
-    SearchResultsTableViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemView"];
+    ItemViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemView"];
     [self.navigationController pushViewController:viewController animated:YES ];
-    //[viewController ReceiveSearchString:self.searchStringTextField.text];
-
+    [viewController ShowItem:searchItem.id];
 }
 
 /*

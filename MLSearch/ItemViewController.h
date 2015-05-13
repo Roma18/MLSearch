@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ItemViewController : UIViewController
-
+@interface ItemViewController : UIViewController <UIAlertViewDelegate>
+-(void) ShowItem:(NSString *) itemID;
+@property (weak, nonatomic) IBOutlet UIImageView *imagenViewSpace;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @end

@@ -114,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchItemCell" id="qUD-lV-HfK" customClass="SearchItemTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchItemCell" id="qUD-lV-HfK" customClass="SearchItemTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qUD-lV-HfK" id="Bhe-r8-oke">
@@ -128,7 +128,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tittle" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWn-uF-uiv">
-                                            <rect key="frame" x="99" y="12" width="477" height="23"/>
+                                            <rect key="frame" x="99" y="12" width="444" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -167,12 +167,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuB-0v-My2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-411" y="30"/>
+            <point key="canvasLocation" x="-573" y="-56"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="uKo-kr-kFc">
             <objects>
-                <viewController storyboardIdentifier="ItemView" id="PwC-nJ-Tpl" customClass="ItemViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ItemView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PwC-nJ-Tpl" customClass="ItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wet-fY-fu0"/>
                         <viewControllerLayoutGuide type="bottom" id="9Dx-cK-UDI"/>
@@ -180,12 +180,28 @@
                     <view key="view" contentMode="scaleToFill" id="4RJ-tn-jLK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rkc-wm-MER">
+                                <rect key="frame" x="32" y="36" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="ONF-Vd-vTW"/>
+                                    <constraint firstAttribute="height" constant="240" id="c7d-Uk-UP4"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rkc-wm-MER" firstAttribute="top" secondItem="wet-fY-fu0" secondAttribute="bottom" constant="16" id="WNn-Oa-5HK"/>
+                            <constraint firstItem="rkc-wm-MER" firstAttribute="leading" secondItem="4RJ-tn-jLK" secondAttribute="leadingMargin" constant="16" id="q6C-E8-S6O"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imagenViewSpace" destination="rkc-wm-MER" id="q3c-3e-7CU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YFk-oL-WgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="359" y="-230"/>
+            <point key="canvasLocation" x="103" y="-56"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mPB-0h-i87">
